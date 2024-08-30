@@ -71,7 +71,7 @@ function RealtimeChart({
             ticks: {
               autoSkipPadding: 48,
               maxRotation: 0,
-              color: darkMode ? textColor.dark : textColor.light,
+              color: darkMode ? textColor.medium : textColor.light,
             },
           },
         },
@@ -149,8 +149,8 @@ function RealtimeChart({
     <React.Fragment>
       <div className="px-5 py-3">
         <div className="flex items-start">
-          <div className="text-3xl font-bold text-gray-800 dark:text-gray-100 mr-2 tabular-nums">$<span ref={chartValue}>57.81</span></div>
-          <div ref={chartDeviation} className="text-sm font-medium px-1.5 rounded-full"></div>
+          <div className="text-3xl font-bold text-gray-800 dark:text-gray-100 mr-2 tabular-nums"><span ref={chartValue}>57.81</span>%</div>
+          <div ref={chartDeviation} className=" text-sm font-medium px-1.5 rounded-full"></div>
         </div>
       </div>
       <div className="grow">
