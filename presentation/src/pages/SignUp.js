@@ -34,7 +34,7 @@ const SignUp = () => {
         setLoading(true); 
         console.log('reached try catch');
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/createuser', {
+            const response = await axios.post('http://localhost:5000/auth/api/register', {
                 email,
                 username,
                 password,
@@ -82,7 +82,7 @@ const SignUp = () => {
                                         name="username" 
                                         className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                                         type="text" 
-                                        placeholder="username*" 
+                                        placeholder="Username*" 
                                         value={username}
                                         onChange={(e)=> setUsername(e.target.value)}
                                         onKeyUp={clearErrors}
@@ -97,7 +97,7 @@ const SignUp = () => {
                                         name="email"
                                         className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                                         type="email" 
-                                        placeholder="email*"
+                                        placeholder="Email*"
                                         value={email}
                                         onChange={(e)=> setEmail(e.target.value)}
                                         onKeyUp={clearErrors}   
@@ -112,7 +112,7 @@ const SignUp = () => {
                                         name="password" 
                                         className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                                         type="password" 
-                                        placeholder="password*"
+                                        placeholder="Password*"
                                         value={password}
                                         onChange={(e)=> setPassword(e.target.value)}
                                         onKeyUp={clearErrors}
@@ -126,7 +126,7 @@ const SignUp = () => {
                                         name="confirm_password" 
                                         className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                                         type="password" 
-                                        placeholder="confirm password*"
+                                        placeholder="Confirm password*"
                                         value={confirmPassword}
                                         onChange={(e)=> setConfirmPassword(e.target.value)}
                                         onKeyUp={clearErrors}

@@ -9,7 +9,7 @@ const Login = () => {
 
     useDocTitle('Lend My Compute - Login');
     
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
     const [loading, setLoading] = useState(false); 
@@ -22,15 +22,16 @@ const Login = () => {
         e.preventDefault(); 
         setLoading(true); 
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/createuser', {
-                username,
+            console.log('reached try catch');
+            
+            const response = await axios.post('http://localhost:5000/auth/api/login', {
+                email,
                 password,
             });
-
             // Handle success
             console.log(response.data);
             // Clear form and show success message or redirect
-            setUsername('');
+            setEmail('');
             setPassword('');
             setErrors([]);
             // Optionally show a success notification here
@@ -64,16 +65,16 @@ const Login = () => {
                         <div className="grid grid-cols-1 gap-5 md:grid-cols-1 mt-5">
                                 <div>
                                     <input 
-                                        name="username" 
+                                        name="email" 
                                         className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                                         type="text" 
-                                        placeholder="username*" 
-                                        value={username}
-                                        onChange={(e)=> setUsername(e.target.value)}
+                                        placeholder="Email*" 
+                                        value={email}
+                                        onChange={(e)=> setEmail(e.target.value)}
                                         onKeyUp={clearErrors}
                                     />
                                     {errors && 
-                                        <p className="text-red-500 text-sm">{errors.username}</p>
+                                        <p className="text-red-500 text-sm">{errors.email}</p>
                                     }
                                 </div>
 
