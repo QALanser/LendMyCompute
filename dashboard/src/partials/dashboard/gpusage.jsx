@@ -19,13 +19,13 @@ function DashboardCard05() {
   const [range, setRange] = useState(35);
   
   // Dummy data to be looped
-  const data = [
-    57.81, 57.75, 55.48, 54.28, 53.14, 52.25, 51.04, 52.49, 55.49, 56.87,
-    53.73, 56.42, 58.06, 55.62, 58.16, 55.22, 58.67, 60.18, 61.31, 63.25,
-    65.91, 64.44, 65.97, 62.27, 60.96, 59.34, 55.07, 59.85, 53.79, 51.92,
-    50.95, 49.65, 48.09, 49.81, 47.85, 49.52, 50.21, 52.22, 54.42, 53.42,
-    50.91, 58.52, 53.37, 57.58, 59.09, 59.36, 58.71, 59.42, 55.93, 57.71,
-    50.62, 56.28, 57.37, 53.08, 55.94, 55.82, 53.94, 52.65, 50.25,
+  const data =[
+    45.12, 47.75, 42.36, 40.29, 43.58, 41.22, 39.80, 44.27, 46.89, 48.02,
+    42.90, 47.35, 49.21, 43.95, 48.57, 46.12, 49.78, 50.35, 51.92, 53.48,
+    56.12, 54.67, 55.31, 52.04, 50.61, 49.47, 46.13, 50.72, 44.59, 43.27,
+    41.83, 40.47, 39.12, 41.75, 38.62, 40.85, 42.33, 43.98, 45.87, 44.75,
+    41.38, 48.67, 43.52, 47.24, 48.89, 49.21, 48.16, 49.73, 45.12, 46.81,
+    39.88, 47.02, 48.15, 42.67, 45.98, 45.75, 44.23, 43.12, 41.50,
   ];
 
   const [slicedData, setSlicedData] = useState(data.slice(0, range));
@@ -94,12 +94,10 @@ function DashboardCard05() {
   };
 
   return (
-    <div className="flex flex-col col-span-full sm:col-span-6 bg-white dark:bg-gray-800 shadow-sm rounded-xl">
+    <div className="h-full flex flex-col col-span-full sm:col-span-6 bg-white dark:bg-gray-800 shadow-sm rounded-xl">
       <header className="px-5 py-4 border-b border-gray-100 dark:border-gray-700/60 flex items-center">
-        <h2 className="font-semibold text-gray-800 dark:text-gray-100">Real Time Value</h2>
-        <Tooltip className="ml-2">
-          <div className="text-xs text-center whitespace-nowrap">Built with <a className="underline" href="https://www.chartjs.org/" target="_blank" rel="noreferrer">Chart.js</a></div>
-        </Tooltip>
+        <h2 className="font-semibold text-gray-800 dark:text-gray-100">RAM Usage</h2>
+      
       </header>
       {/* Chart built with Chart.js 3 */}
       {/* Change the height attribute to adjust the chart height */}

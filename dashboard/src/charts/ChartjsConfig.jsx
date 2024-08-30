@@ -34,6 +34,7 @@ export const chartColors = {
   textColor: {
     light: tailwindConfig().theme.colors.gray[400],
     dark: tailwindConfig().theme.colors.gray[500],
+    medium: tailwindConfig().theme.colors.gray[800],
   },
   gridColor: {
     light: tailwindConfig().theme.colors.gray[100],
