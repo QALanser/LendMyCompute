@@ -55,7 +55,7 @@ function Tenant() {
                   Tenant
                 </div>
                 <div
-                  className="p-3 text-2xl font-bold text-black text-gray-100  rounded-lg cursor-pointer"
+                  className="p-3 text-2xl font-bold text-black rounded-lg cursor-pointer"
                   onClick={handleLenderClick}
                 >
                   Lender

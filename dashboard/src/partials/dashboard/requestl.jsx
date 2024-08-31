@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import img1 from '../../images/Web-developer.svg';
+import img1 from '../../images/Live collaboration-rafiki.svg';
 
 function Form({ onSetTimer }) {
 
@@ -38,10 +38,7 @@ function Form({ onSetTimer }) {
 
         {/* Form*/}
         <div className="overflow-x-auto p-3">
-          <div className='bg-gray-100 rounded-xl mb-3'>
-            <img src={img1} className="h-flex w-flex p-3" alt="Description" />
-          </div>
-
+          <img src={img1} className="h-flex w-flex p-3" alt="Description" />
           <form onSubmit={handleSubmit} className="h-full p-10 space-y-6 bg-gray-50 dark:bg-gray-700 dark:bg-opacity-50 p-4 rounded-xl shadow-md">
             {/* Number of Hours */}
             <div>
