@@ -138,4 +138,4 @@ const Users = require("../models/usersModel")
 //     res.status(201).json(communities)
 // })
 
-module.exports = {request_gpu}
+// module.exports = {request_gpu}
