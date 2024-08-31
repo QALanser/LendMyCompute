@@ -1,14 +1,33 @@
 import React, { useEffect, useState, useRef } from 'react';
 
 const DashboardCard12 = ({ timerValue }) => {
-  const [time, setTime] = useState(0); // State to hold the timer value
-  const [showTimer, setShowTimer] = useState(false); // State to control the visibility of the timer div
-  const intervalRef = useRef(null); // Reference to store the interval ID
-  const [formattedDateTime, setFormattedDateTime] = useState(''); // State to hold the formatted date and time
+  const [time, setTime] = useState(0);
+  const [showTimer, setShowTimer] = useState(false);
+  const intervalRef = useRef(null);
+  const [formattedDateTime, setFormattedDateTime] = useState('');
   const [showGreenTab, setShowGreenTab] = useState(true);
 
+  const handleConnectClick = () => {
+    fetch('http://localhost:3001/open-terminal')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data.message);
+      })
+      .catch(error => {
+        console.error('Error opening terminal:', error);
+      });
+  };
+
   const handleDeleteClick = () => {
-    setShowGreenTab(false); // Hide the green tab
+    fetch('http://localhost:3001/close-terminal')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data.message);
+        setShowGreenTab(false); // Hide the green tab after closing the terminal
+      })
+      .catch(error => {
+        console.error('Error closing terminal:', error);
+      });
   };
 
   // Update the timer value and visibility whenever timerValue changes
@@ -21,23 +40,21 @@ const DashboardCard12 = ({ timerValue }) => {
       }, 3000);
     }
     
-  const now = new Date();
-  setFormattedDateTime(now.toLocaleString()); 
+    const now = new Date();
+    setFormattedDateTime(now.toLocaleString()); 
 
   }, [timerValue]);
 
   // Function to start the countdown
   const startCountdown = () => {
-    // Clear any existing interval before starting a new one
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
     }
 
-    // Start the countdown interval
     intervalRef.current = setInterval(() => {
       setTime((prevTime) => {
         if (prevTime <= 1) {
-          clearInterval(intervalRef.current); // Stop when time reaches 0
+          clearInterval(intervalRef.current);
           return 0;
         }
         return prevTime - 1;
@@ -45,13 +62,11 @@ const DashboardCard12 = ({ timerValue }) => {
     }, 1000);
   };
 
-  // Effect to start the countdown when showTimer is true and time is set
   useEffect(() => {
     if (showTimer && time > 0) {
       startCountdown();
     }
 
-    // Cleanup interval on component unmount
     return () => {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
@@ -59,7 +74,6 @@ const DashboardCard12 = ({ timerValue }) => {
     };
   }, [showTimer, time]);
 
-  // Format time into hours:minutes:seconds
   const formatTime = (seconds) => {
     const hours = Math.floor(seconds / 3600);
     const minutes = Math.floor((seconds % 3600) / 60);
@@ -78,53 +92,48 @@ const DashboardCard12 = ({ timerValue }) => {
       </header>
 
       <div className="p-3">
-        {showGreenTab && showTimer ? ( // Conditionally render the timer div
+        {showGreenTab && showTimer ? (
           <div className="border-2 border-blue-500 rounded-lg">
-            {/* Green Full-Width Box */}
             <div className="bg-green-500 text-white py-2 px-4 rounded-t-md">
               Session Running
             </div>
 
-            {/* Main Content */}
             <div className="flex items-center justify-between p-4">
-              {/* ID Label */}
               <div className="text-blue-500 font-semibold">Created at {formattedDateTime}</div>
 
-              {/* Timer */}
               <div className="text-xl font-mono">{formatTime(time)}</div>
             </div>
             <div className="flex items-center justify-between p-4">
-            <div>
-              <button
-                className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-600"
-              >
-                Connect
-              </button>
-            </div>
+              <div>
+                <button
+                  onClick={handleConnectClick}
+                  className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-600"
+                >
+                  Connect
+                </button>
+              </div>
 
-            <div>
-              <button
-                onClick={handleDeleteClick}
-                className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 dark:bg-red-500 dark:hover:bg-red-600"
-              >
-                Delete
-              </button>
-            </div>
+              <div>
+                <button
+                  onClick={handleDeleteClick}
+                  className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 dark:bg-red-500 dark:hover:bg-red-600"
+                >
+                  Delete
+                </button>
+              </div>
             </div>
           </div>
         ) : (
           <div>
-          <header className="text-xs uppercase text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-700 dark:bg-opacity-50 rounded-sm font-semibold p-2">
-            No Active Sessions
-          </header>
-          <ul className="my-1">
-            {/* Example Items */}
-            {/* Adjust or remove as necessary */}
-          </ul>
-        </div>
+            <header className="text-xs uppercase text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-700 dark:bg-opacity-50 rounded-sm font-semibold p-2">
+              No Active Sessions
+            </header>
+            <ul className="my-1">
+              {/* Example Items */}
+              {/* Adjust or remove as necessary */}
+            </ul>
+          </div>
         )}
-
-       
       </div>
     </div>
   );
