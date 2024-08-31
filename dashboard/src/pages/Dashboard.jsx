@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Sidebar from '../partials/Sidebar';
 import Header from '../partials/Header';
@@ -17,6 +18,13 @@ import RequestC from '../partials/dashboard/requestc';;
 import Activity from '../partials/dashboard/activityc';
 
 function Dashboard() {
+
+  const navigate = useNavigate(); // Initialize useNavigate hook
+
+  // Function to handle Tenant click
+  const handleTenantClick = () => {
+    navigate('/lender'); // Navigate to the Tenant page
+  };
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
     // Step 1: State to hold the timer value in seconds
@@ -44,6 +52,30 @@ function Dashboard() {
               {/* Left: Title */}
               <div className="mb-4 sm:mb-0 ">
                 <h1 className="text-2xl md:text-3xl text-gray-800 dark:text-gray-100 font-bold">Lend My Compute</h1>
+              </div>
+
+              <div className="flex items-center justify-center  p-4 space-x-8">
+                <div
+                  className="p-3 text-2xl font-bold text-gray-100  rounded-lg cursor-pointer"
+                  onClick={() => {}}
+                >
+                  Tenant
+                </div>
+                <div
+                  className="p-3 text-2xl font-bold text-gray-100  rounded-lg cursor-pointer"
+                  onClick={handleTenantClick}
+                >
+                  Lender
+                </div>
+
+                <div>
+              <button
+                type="submit" 
+                className="w-full text-2xl py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-600"
+              >
+                Logout
+              </button>
+            </div>
               </div>
 
             </div>
