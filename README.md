@@ -14,3 +14,10 @@ cd dashboard
 npm install
 npm run dev
 ```
+
+### terminal backend
+```bash
+cd terminal_backend
+npm install
+node index.js
+```
