@@ -62,12 +62,12 @@ function Tenant() {
                 </div>
 
                 <div>
-              <button
-                type="submit" 
-                className="w-full text-2xl font-bold py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-600"
-              >
-                Logout
-              </button>
+                <a
+                  href="http://localhost:3000/signup"
+                  className="w-full text-2xl font-bold py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-center inline-block"
+                >
+                  Logout
+                </a>
             </div>
               </div>
 
