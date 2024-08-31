@@ -134,6 +134,7 @@ function DoughnutChart({
       <div className="px-5 pt-2 pb-6">
         <ul ref={legend} className="flex flex-wrap justify-center -m-1"></ul>
       </div>
+      
     </div>
   );
 }

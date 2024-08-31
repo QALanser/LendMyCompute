@@ -14,11 +14,20 @@ import Banner from '../partials/Banner';
 import GPUUsage from '../partials/dashboard/gpusage';
 import Billing from '../partials/dashboard/billing';
 import RequestC from '../partials/dashboard/requestc';;
-import Activity from '../partials/dashboard/DashboardCard12';
+import Activity from '../partials/dashboard/activityc';
 
 function Dashboard() {
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
+    // Step 1: State to hold the timer value in seconds
+    const [timerValue, setTimerValue] = useState(0);
+
+    // Step 2: Handler function to set the timer value when RequestC submits
+    const handleSetTimer = (time) => {
+      // Convert hours to seconds and update the state
+      
+      setTimerValue(time * 3600);
+    };
 
   return (
     <div className="flex h-screen overflow-hidden">
@@ -43,16 +52,16 @@ function Dashboard() {
             
             <div className="grid grid-cols-3 grid-rows-2 gap-3">
                 {/* <!-- a: Row 1, Column 1 --> */}
-                <div className="bg-gray-400 hover:bg-gray-100 p-4 rounded-xl"><GPUUsage /></div>
+                <div className="bg-gray-400 shadow-no-shadow hover:shadow-hover-white transition-shadow duration-300 rounded-xl"><GPUUsage /></div>
                 
                 {/* <!-- b: Row 1, Column 2 --> */}
-                <div className="bg-gray-400 hover:bg-gray-200 p-4 rounded-xl"><Billing /></div>
+                <div className="bg-gray-400 shadow-no-shadow hover:shadow-hover-white transition-shadow duration-300 rounded-xl"><Billing /></div>
                 
                 {/* <!-- d: Row 1 and Row 2, Column 3 --> */}
-                <div className="bg-gray-400 hover:bg-gray-200 p-4 col-span-1 row-span-2 rounded-xl"><RequestC /></div>
+                <div className="bg-gray-400 shadow-no-shadow hover:shadow-hover-white transition-shadow duration-300  col-span-1 row-span-2 rounded-xl"><RequestC onSetTimer={handleSetTimer} /></div>
                 
                 {/* <!-- c: Row 2, Column 1 and Column 2 --> */}
-                <div className="bg-gray-400 hover:bg-gray-200 p-4 col-span-2 rounded-xl"><Activity /></div>
+                <div className="bg-gray-400 shadow-no-shadow hover:shadow-hover-white transition-shadow duration-300  col-span-2 rounded-xl"><Activity timerValue={timerValue} /></div>
               </div>
 
           </div>

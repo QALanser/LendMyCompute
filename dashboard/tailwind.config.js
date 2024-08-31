@@ -1,6 +1,8 @@
 import plugin from "tailwindcss/plugin";
 import forms from '@tailwindcss/forms';
 
+
+
 export default {
   content: [
     './index.html',
@@ -124,6 +126,10 @@ export default {
       },
       zIndex: {
         60: '60',
+      },
+      boxShadow: {
+        'hover-white': '0 4px 8px rgba(255, 255, 255, 0.5)', // Custom white shadow
+        'no-shadow': '0 8px 16px rgba(255, 255, 255, 0)', // Custom white hover shadow
       },
     },
   },
