@@ -13,13 +13,16 @@ import DashboardCard13 from '../partials/dashboard/DashboardCard13';
 import Banner from '../partials/Banner';
 
 import GPUUsage from '../partials/dashboard/gpusage';
-import Billing from '../partials/dashboard/billingl';
 import RequestC from '../partials/dashboard/requestl';;
 import Activity from '../partials/dashboard/activityl';
+import { useThemeProvider } from '../utils/ThemeContext';
 
 function Lender() {
 
   const navigate = useNavigate(); // Initialize useNavigate hook
+
+  const { currentTheme, changeCurrentTheme } = useThemeProvider();
+  changeCurrentTheme("dark")
 
   // Function to handle Tenant click
   const handleTenantClick = () => {
@@ -86,7 +89,7 @@ function Lender() {
             <div className="grid grid-cols-3 grid-rows-2 gap-3">
                 
                 {/* <!-- d: Row 1 and Row 2, Column 3 --> */}
-                <div className="bg-gray-400 shadow-no-shadow hover:shadow-hover-white transition-shadow duration-300  col-span-1 row-span-2 rounded-xl"><RequestC onSetTimer={handleSetTimer} /></div>
+                <div className="bg-white shadow-no-shadow hover:shadow-hover-white transition-shadow duration-300  col-span-1 row-span-2 rounded-xl"><RequestC onSetTimer={handleSetTimer} /></div>
                   
                 {/* <!-- a: Row 1, Column 1 --> */}
                 <div className="bg-gray-400 shadow-no-shadow hover:shadow-hover-white transition-shadow duration-300 rounded-xl"><GPUUsage /></div>

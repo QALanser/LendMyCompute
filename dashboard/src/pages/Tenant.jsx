@@ -5,12 +5,14 @@ import GPUUsage from '../partials/dashboard/gpusage';
 import Billing from '../partials/dashboard/billing';
 import RequestC from '../partials/dashboard/requestc';;
 import Activity from '../partials/dashboard/activityc';
+import { useThemeProvider } from '../utils/ThemeContext';
 
 function Tenant() {
 
   // Step 1: State to hold the timer value in seconds
   const [timerValue, setTimerValue] = useState(0);
-
+  const { currentTheme, changeCurrentTheme } = useThemeProvider();
+  changeCurrentTheme("light")
   
   // Function to handle Tenant click
 
@@ -47,13 +49,13 @@ function Tenant() {
 
               <div className="flex items-center justify-center  p-4 space-x-8">
                 <div
-                  className="p-3 text-2xl font-bold text-white underline rounded-lg cursor-pointer"
+                  className="p-3 text-2xl font-bold text-black underline rounded-lg cursor-pointer"
                   onClick={() => {}}
                 >
                   Tenant
                 </div>
                 <div
-                  className="p-3 text-2xl font-bold text-gray-100  rounded-lg cursor-pointer"
+                  className="p-3 text-2xl font-bold text-black text-gray-100  rounded-lg cursor-pointer"
                   onClick={handleLenderClick}
                 >
                   Lender
@@ -81,7 +83,7 @@ function Tenant() {
                 <div className="bg-gray-400 shadow-no-shadow hover:shadow-hover-white transition-shadow duration-300 rounded-xl"><Billing /></div>
                 
                 {/* <!-- d: Row 1 and Row 2, Column 3 --> */}
-                <div className="bg-gray-400 shadow-no-shadow hover:shadow-hover-white transition-shadow duration-300  col-span-1 row-span-2 rounded-xl"><RequestC onSetTimer={handleSetTimer} /></div>
+                <div className="bg-white shadow-no-shadow hover:shadow-hover-white transition-shadow duration-300  col-span-1 row-span-2 rounded-xl"><RequestC onSetTimer={handleSetTimer} /></div>
                 
                 {/* <!-- c: Row 2, Column 1 and Column 2 --> */}
                 <div className="bg-gray-400 shadow-no-shadow hover:shadow-hover-white transition-shadow duration-300  col-span-2 rounded-xl"><Activity timerValue={timerValue} /></div>

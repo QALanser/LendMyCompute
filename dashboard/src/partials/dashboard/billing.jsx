@@ -41,10 +41,10 @@ function DashboardCard06() {
       </div>
 
       <div className="flex justify-center space-x-8">
-        <div className="p-3 text-2xl font-bold text-gray-100">
+        <div className="p-3 text-2xl font-bold text-black">
           Balance: $70
         </div>
-        <div className="p-3 text-2xl font-bold text-gray-100">
+        <div className="p-3 text-2xl font-bold text-black">
           Usage: 4Hr
         </div>
       </div>
