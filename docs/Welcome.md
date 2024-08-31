@@ -1,0 +1,1 @@
+This is the complete design note base for the lend my compute application
