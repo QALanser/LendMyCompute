@@ -6,7 +6,7 @@ import Billing from '../partials/dashboard/billing';
 import RequestC from '../partials/dashboard/requestc';;
 import Activity from '../partials/dashboard/activityc';
 
-function Dashboard() {
+function Tenant() {
 
   // Step 1: State to hold the timer value in seconds
   const [timerValue, setTimerValue] = useState(0);
@@ -15,7 +15,8 @@ function Dashboard() {
   // Function to handle Tenant click
 
   const navigate = useNavigate(); // Initialize useNavigate hook
-  const handleTenantClick = () => {
+
+  const handleLenderClick = () => {
     navigate('/lender'); // Navigate to the Tenant page
   };
 
@@ -46,14 +47,14 @@ function Dashboard() {
 
               <div className="flex items-center justify-center  p-4 space-x-8">
                 <div
-                  className="p-3 text-2xl font-bold text-gray-100  rounded-lg cursor-pointer"
+                  className="p-3 text-2xl font-bold text-white underline rounded-lg cursor-pointer"
                   onClick={() => {}}
                 >
                   Tenant
                 </div>
                 <div
                   className="p-3 text-2xl font-bold text-gray-100  rounded-lg cursor-pointer"
-                  onClick={handleTenantClick}
+                  onClick={handleLenderClick}
                 >
                   Lender
                 </div>
@@ -94,4 +95,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Tenant;

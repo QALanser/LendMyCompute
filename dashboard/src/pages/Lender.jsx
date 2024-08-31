@@ -17,7 +17,7 @@ import Billing from '../partials/dashboard/billingl';
 import RequestC from '../partials/dashboard/requestl';;
 import Activity from '../partials/dashboard/activityl';
 
-function Dashboard() {
+function Lender() {
 
   const navigate = useNavigate(); // Initialize useNavigate hook
 
@@ -63,7 +63,7 @@ function Dashboard() {
                   Tenant
                 </div>
                 <div
-                  className="p-3 text-2xl font-bold text-gray-100  rounded-lg cursor-pointer"
+                  className="p-3 text-2xl font-bold underline text-gray-100  rounded-lg cursor-pointer"
                   onClick={() => {}}
                 >
                   Lender
@@ -106,4 +106,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Lender;

@@ -12,7 +12,7 @@ import Home from './pages/Home';
 // import Contact from './pages/Contact';
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
-import Dashboard from './pages/Tenant';
+import Dashboard from './pages/Dashboard';
 import TDashboard from './pages/TDashboard';
 import DemoProduct from './pages/DemoProduct';
 
